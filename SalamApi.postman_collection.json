@@ -1,0 +1,1887 @@
+{
+  "info": {
+    "_postman_id": "e4d2fba2-e934-46dc-ac56-523ad458de7f",
+    "name": "SalamApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33758921"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "LogIn",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateUser",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_03jl}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz2@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"full_name\":\"Omran0\",\r\n    \"role_code\":\"editor\",\r\n    \"preferred_lang\":\"en\",\r\n    \"status\":\"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Users_list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Roles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz2@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"full_name\":\"Omran0\",\r\n    \"role_code\":\"editor\",\r\n    \"preferred_lang\":\"en\",\r\n    \"status\":\"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/roles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetUserByID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/a0f10ee4-f5c2-420e-8609-7ac05dc913e9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "a0f10ee4-f5c2-420e-8609-7ac05dc913e9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateUser",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_03jl}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/a0f10ee4-f5c2-420e-8609-7ac05dc913e9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "a0f10ee4-f5c2-420e-8609-7ac05dc913e9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteUser",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_03jl}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/a0f10ee4-f5c2-420e-8609-7ac05dc913e9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "a0f10ee4-f5c2-420e-8609-7ac05dc913e9"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "GetAllPosts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/posts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CraetePost",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"published\",\r\n  \"visibility\": \"published\",\r\n  \"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n      \"title\": \"Community Support Project\",\r\n      \"summary\": \"Support for local communities.\",\r\n      \"content\":\"Post 1content test By Aziz  Support for local communities Support for local communities Support for local communities\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"title\": \"مشروع دعم المجتمع\",\r\n      \"summary\": \"دعم المجتمعات المحلية.\",\r\n       \"content\": \"دعم المجتمعات المحلية. دعم المجتمعات دعم المجتمعات دعم المجتمعات دعم المجتمعات دعم المجتمعات\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/posts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdatePost",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_03jl}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\":\"3c9cb75a-4292-4aa4-9f62-2f64cd18b77e\",\r\n  \"project_id\":\"10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/posts/3c9cb75a-4292-4aa4-9f62-2f64cd18b77e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "posts",
+                "3c9cb75a-4292-4aa4-9f62-2f64cd18b77e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeletePost",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/posts/f99c897d-385c-4dfc-b6ba-dd584160f19a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "posts",
+                "f99c897d-385c-4dfc-b6ba-dd584160f19a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "GetAllprojects",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Craeteprojects",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code0\":\"DANIDA\",\r\n  \"status\": \"ongoing\",\r\n  \"visibility\": \"published\",\r\n  \"start_date\":\"2027-01-01\",\r\n  \"end_date\":\"2027-12-31\",\r\n  \"is_featured\":\"true\",\r\n  \"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n      \"title\": \"DANIDA TITLE For Project\",\r\n      \"summary\": \"this project for danida test sub filds in translation table\",\r\n      \"content\":\"Post 1content test By Aziz  Support for local communities Support for local communities Support for local communities Post 1content test By Aziz  Support for local communities Support for local communities Support for local communities\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"title\": \" دعم المجتمع\",\r\n      \"summary\": \"دعم المجتمعات المحلية.\",\r\n       \"content\": \"دعم المجتمعات المحلية. دعم المجتمعات دعم المجتمعات دعم المجتمعات دعم المجتمعات دعم المجتمعات\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updateprojects",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\":\"completed\",\r\n  \"start_date\":\"2026-01-01\",\r\n  \"end_date\":\"2026-06-01\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deleteprojects",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects/9d43e78a-3abb-49d1-bcc8-03bb23d85b3a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects",
+                "9d43e78a-3abb-49d1-bcc8-03bb23d85b3a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "sectors",
+      "item": [
+        {
+          "name": "GetAllSectors",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/sectors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "sectors"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CraeteSector",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"code\": \"suport\",\r\n  \"is_active\": \"true\",\r\n  \"sort_order\":13,\r\n  \"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n      \"name\": \"SUPORT\",\r\n      \"summary\": \"Support other sectors\",\r\n      \"content\":\"Support other sectorsSupport other sectorsSupport other sectorsSupport other sectorsSupport other sectorsSupport other sectors\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"name\": \" الدعم\",\r\n      \"summary\": \"دعم ال\",\r\n       \"content\": \"دعم المجتمعات المحلية. دعم المجتمعات دعم المجتمعات دعم المجتمعات دعم المجتمعات دعم المجتمعات\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/sectors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "sectors"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updateprojects",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"is_active\":\"false\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/sectors/8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "sectors",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deleteprojects",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/sectors/8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "sectors",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Partners",
+      "item": [
+        {
+          "name": "GetAllpartners",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/partners",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "partners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Craetepartner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n            \"type\": \"partner\",\r\n            \"sort_order\": 5,\r\n            \"is_active\": \"true\",\r\n            \"show_on_home\": \"false\",\r\n\r\n            \"logo_url\": \"null\",\r\n  \"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n            \"name\": \"GIZ\",\r\n            \"description\": \"GIZ Agency for humaniterian\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"name\": \" الدعم\",\r\n      \"description\": \"دعم ال\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/partners",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "partners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updatepartner",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"type\":\"network\",\r\n\"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n            \"name\": \"GIZ Update\",\r\n            \"description\": \"GIZ Update  Agency for humaniterian\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"name\": \"Update الدعم\",\r\n      \"description\": \"دعم Updatetttttttttttttttttال\"\r\n    }\r\n]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/partners/5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "partners",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deletepartner",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/partners/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "partners",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "item": [
+        {
+          "name": "GetAlljobs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jobs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jobs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Craetejobs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"office_id\":1,\r\n\"reference_no\":\"10\",\r\n    \"location_id\": 1,\r\n    \"sector_id\": 5,\r\n    \"project_id\": 2,\r\n    \"employment_type\":\"full_time\",\r\n    \"deadline_at\":\"2026-11-11\",\r\n    \"status\":\"open\",\r\n  \"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n            \"title\": \"IM Officer\",\r\n            \"summary\": \"The Information Management Officer will report to the MEA ordinator and will provide technical IM support to all members of the MEAL team in the Area Office (AO), across various projects \",\r\n            \"responsibilities\":\"Support the MEAL team in drafting online and offline data collection tools. Responsible for data validation activities conducted by the MEAL team, ensuring that data collected by SC and Partner teams is reviewed for completeness, consistency, and validity, and triangulated for accuracy. Responsible for the data management process by engaging in data cleaning tasks, ensuring that data collected by SC and Partner teams is consistent and free of errors. Upload data to relevant AO databases, follow up on online applications, and support the transfer of data if the database software is changed. Extract data from relevant databases, as requested by SC staff. Responsible for the compilation, organisation, and storage of all MEAL related data and files, and other program files when relevant, to ensure that all data follows SC storage guidelines. Responsible for archiving all data, in line with SC archiving procedures, including engaging in pseudonimsation and anonymisation processes. Responsible for the safe and ethical destruction of data at the end of the data life cycle, in line with SC data destruction procedures. Conduct regular field monitoring visits, to ensure data collection (disaggregation of data, use of attendance sheets and other tools) is done according to agreed procedures and standards.Support the MEAL team, including the MEAL Coordinator and IM Manager, in monitoring data quality through data audits and checks. Translate data reported by Field Monitors, and other data when necessary (Arabic/English).Support in performing data analysis tasks, including producing statistical charts, and information graphics.\",\r\n            \"qualifications\":\"BSc/BA/BEng in Social Sciences, Computer Sciences, Statistics or related field. At least 2 years of experience in IM and/or MEAL activities and scope. Experience in data collection and analysis, data management and reporting Experience working with implementing partnersPrevious experience with remote partnership management modalitiesExtensive experience in knowledge and database managementFluent in English, both spoken and writtenExperience of training and capacity buildingSome experience of representation and ability to represent SC effectively in external forums Excellent communication and influencing skills\",\r\n            \"how_to_apply\":\"click here to apply\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"title\": \" موظف تقنية معلومات\",\r\n      \"summary\": \" سيرفع مسؤول إدارة المعلومات تقاريره إلى منسق الرصد والتقييم والمساءلة والتعلم (MEAL)، وسيقدم الدعم الفني في مجال إدارة المعلومات لجميع أعضاء فريق الرصد والتقييم والمساءلة والتعلم في المكتب الميداني (Area Office)، وذلك عبر مختلف المشاريع.\",\r\n       \"responsibilities\":\"دعم فريق الرصد والتقييم والمساءلة والتعلم (MEAL) في إعداد أدوات جمع البيانات، سواء كانت رقمية أو ورقية. تولي مسؤولية أنشطة التحقق من صحة البيانات التي ينفذها الفريق، مع ضمان مراجعة البيانات التي تجمعها منظمة (SC) وفرق الشركاء للتأكد من اكتمالها واتساقها وصحتها، ومطابقتها عبر مصادر متعددة (التثليث) لضمان دقتها. إدارة عملية البيانات من خلال تنفيذ مهام تنظيف البيانات، والتأكد من خلوها من الأخطاء واتساقها. رفع البيانات إلى قواعد البيانات المعنية، ومتابعة التطبيقات الرقمية المستخدمة، ودعم عملية نقل البيانات في حال تغيير برمجيات قواعد البيانات. استخراج البيانات من قواعد البيانات المطلوبة بناءً على طلب موظفي المنظمة. تجميع وتنظيم وتخزين جميع البيانات والملفات المتعلقة بالرصد والتقييم والمساءلة والتعلم -بالإضافة إلى ملفات البرامج الأخرى ذات الصلة- مع الالتزام التام بسياسات التخزين المعتمدة لدى المنظمة. أرشفة جميع البيانات وفقاً لإجراءات الأرشفة المتبعة في المنظمة، بما في ذلك تطبيق عمليات إخفاء الهوية (استخدام أسماء مستعارة أو إزالة البيانات التعريفية). ضمان التخلص الآمن والأخلاقي من البيانات عند انتهاء دورة حياتها، وفقاً لإجراءات المنظمة الخاصة بإتلاف البيانات. إجراء زيارات ميدانية دورية للتحقق من أن عمليات جمع البيانات (بما في ذلك تصنيف البيانات، واستخدام قوائم الحضور، وغيرها من الأدوات) تتم وفقاً للإجراءات والمعايير المتفق عليها. دعم فريق الرصد والتقييم والمساءلة والتعلم -بمن فيهم منسق الفريق ومدير إدارة المعلومات (IM Manager)- في مراقبة جودة البيانات من خلال عمليات التدقيق والفحص. ترجمة البيانات الواردة من المراقبين الميدانيين، وأي بيانات أخرى عند الحاجة (من العربية إلى الإنجليزية وبالعكس). المساعدة في مهام تحليل البيانات، بما في ذلك إعداد الرسوم البيانية الإحصائية والمخططات المعلوماتية (إنفوجرافيك).\",\r\n        \"qualifications\":\"درجة البكالوريوس (BSc/BA/BEng) في العلوم الاجتماعية، أو علوم الحاسوب، أو الإحصاء، أو أي مجال ذي صلة. خبرة لا تقل عن عامين في أنشطة ومجالات إدارة المعلومات (IM) و/أو الرصد والتقييم والمساءلة والتعلم (MEAL). خبرة في جمع البيانات وتحليلها، وإدارة البيانات، وإعداد التقارير. خبرة في العمل مع الشركاء المنفذين، وخبرة سابقة في أساليب إدارة الشراكات عن بُعد. خبرة واسعة في إدارة المعرفة وقواعد البيانات. إجادة اللغة الإنجليزية تحدثاً وكتابةً. خبرة في التدريب وبناء القدرات. خبرة في تمثيل المنظمة (SC) والقدرة على تمثيلها بفعالية في المحافل الخارجية. مهارات ممتازة في التواصل والتأثير.\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jobs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jobs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ApplyJob",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "full_name",
+                  "value": "ABdulaziz",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "testJobApplication@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "consent_given",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "cv",
+                  "type": "file",
+                  "src": [
+                    "/D:/CV/CV_2025/Abdulaziz Barghouth_.pdf"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jobs/4/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jobs",
+                "4",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updatejobs",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"type\":\"network\",\r\n\"translations\": [\r\n    {\r\n      \"lang_code\": \"en\",\r\n            \"name\": \"GIZ Update\",\r\n            \"description\": \"GIZ Update  Agency for humaniterian\"\r\n    },\r\n    {\r\n      \"lang_code\": \"ar\",\r\n      \"name\": \"Update الدعم\",\r\n      \"description\": \"دعم Updatetttttttttttttttttال\"\r\n    }\r\n]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jobs/5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jobs",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deletejobs",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jobs/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jobs",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tenders",
+      "item": [
+        {
+          "name": "Gettenders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tenders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tenders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Craetejobs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n  \"reference_no\":\"10\",\r\n  \"type\": \"services\",\r\n  \"project_id\": 1,\r\n  \"location_id\": 1,\r\n  \"clarification_deadline\": \"2026-10-30\",\r\n  \"submission_deadline\": \"2027-01-01\",\r\n  \"opening_date\": \"2026-12-31\",\r\n  \"submission_email\":\"tenders@gmail.com\",\r\n  \"status\": \"draft\",\r\n  \"translations\":[\r\n    {\r\n        \r\n      \"lang_code\": \"en\",\r\n      \"title\": \"Tender for services\",\r\n      \"summary\": \"to provide deskes fro schools\",\r\n      \"content\":\"this announcement to provide deskes for the following scolls .....,      this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ar\",\r\n      \"title\": \"مناقصة خدمات\",\r\n      \"summary\": \"توفير مكاتب للمدارس\",\r\n      \"content\":\"tهذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ku\",\r\n      \"title\": \"Îhaleya xizmetguzariyan\",\r\n      \"summary\": \"ji bo dibistanan maseyên xwendinê dabînkirin\",\r\n      \"content\":\"Ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,      ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....\"\r\n     \r\n    }\r\n  ]\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tenders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tenders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ApplyTender",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tenders/1/documents",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tenders",
+                "1",
+                "documents"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateTenders",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n  \"reference_no\":\"11\",\r\n  \"type\": \"services\",\r\n  \"project_id\": 1,\r\n  \"location_id\": 1,\r\n  \"clarification_deadline\": \"2026-10-30\",\r\n  \"submission_deadline\": \"2027-01-01\",\r\n  \"opening_date\": \"2026-12-31\",\r\n  \"submission_email\":\"tenders@gmail.com\",\r\n  \"status\": \"open\",\r\n  \"translations\":[\r\n    {\r\n        \r\n      \"lang_code\": \"en\",\r\n      \"title\": \"Tender for services\",\r\n      \"summary\": \"to provide deskes fro schools\",\r\n      \"description\":\"this announcement to provide deskes for the following scolls .....,      this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....\",\r\n      \"instructions\":\"please do this .....\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ar\",\r\n      \"title\": \"مناقصة خدمات\",\r\n      \"summary\": \"توفير مكاتب للمدارس\",\r\n      \"description\":\"tهذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...\",\r\n      \"instructions\":\"please do this .....\"\r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ku\",\r\n      \"title\": \"Îhaleya xizmetguzariyan\",\r\n      \"summary\": \"ji bo dibistanan maseyên xwendinê dabînkirin\",\r\n      \"description\":\"Ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,      ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....\",\r\n      \"instructions\":\"please do this .....\"\r\n    }\r\n  ]\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tenders/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tenders",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteTenders",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tenders/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tenders",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Announcements/Not Applyed Now Copy",
+      "item": [
+        {
+          "name": "Gettenders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/announcements",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "announcements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CraeteAnnouncements",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n  \"reference_no\":\"10\",\r\n  \"type\": \"services\",\r\n  \"project_id\": 1,\r\n  \"location_id\": 1,\r\n  \"clarification_deadline\": \"2026-10-30\",\r\n  \"submission_deadline\": \"2027-01-01\",\r\n  \"opening_date\": \"2026-12-31\",\r\n  \"submission_email\":\"tenders@gmail.com\",\r\n  \"status\": \"draft\",\r\n  \"translations\":[\r\n    {\r\n        \r\n      \"lang_code\": \"en\",\r\n      \"title\": \"Tender for services\",\r\n      \"summary\": \"to provide deskes fro schools\",\r\n      \"content\":\"this announcement to provide deskes for the following scolls .....,      this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ar\",\r\n      \"title\": \"مناقصة خدمات\",\r\n      \"summary\": \"توفير مكاتب للمدارس\",\r\n      \"content\":\"tهذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ku\",\r\n      \"title\": \"Îhaleya xizmetguzariyan\",\r\n      \"summary\": \"ji bo dibistanan maseyên xwendinê dabînkirin\",\r\n      \"content\":\"Ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,      ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....\"\r\n     \r\n    }\r\n  ]\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/announcements",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "announcements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ApplyTender",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tenders/1/documents",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tenders",
+                "1",
+                "documents"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateAnnouncements",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n  \"reference_no\":\"11\",\r\n  \"type\": \"services\",\r\n  \"project_id\": 1,\r\n  \"location_id\": 1,\r\n  \"clarification_deadline\": \"2026-10-30\",\r\n  \"submission_deadline\": \"2027-01-01\",\r\n  \"opening_date\": \"2026-12-31\",\r\n  \"submission_email\":\"tenders@gmail.com\",\r\n  \"status\": \"open\",\r\n  \"translations\":[\r\n    {\r\n        \r\n      \"lang_code\": \"en\",\r\n      \"title\": \"Tender for services\",\r\n      \"summary\": \"to provide deskes fro schools\",\r\n      \"description\":\"this announcement to provide deskes for the following scolls .....,      this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....\",\r\n      \"instructions\":\"please do this .....\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ar\",\r\n      \"title\": \"مناقصة خدمات\",\r\n      \"summary\": \"توفير مكاتب للمدارس\",\r\n      \"description\":\"tهذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...\",\r\n      \"instructions\":\"please do this .....\"\r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ku\",\r\n      \"title\": \"Îhaleya xizmetguzariyan\",\r\n      \"summary\": \"ji bo dibistanan maseyên xwendinê dabînkirin\",\r\n      \"description\":\"Ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,      ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....\",\r\n      \"instructions\":\"please do this .....\"\r\n    }\r\n  ]\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/announcements/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "announcements",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteAnnouncements",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/announcements/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "announcements",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "item": [
+        {
+          "name": "GetContact",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CraeteContact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"name\":\"Aziz\",\r\n    \"email\":\"aziz@gmail.com\",\r\n    \"phone\":\"+963991820491\" ,\r\n    \"subject\":\"super_admin\",\r\n    \"message\":\"Aziz Barghoth\",\r\n    \"status\":\"new\",\r\n    \"assigned_to\":\"2971341e-acef-40f2-a03a-e66bfe3823d4\",\r\n    \"ip_hash\":\"hased IP\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateContact",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"name\":\"Aziz\",\r\n    \"email\":\"aziz@gmail.com\",\r\n    \"phone\":\"+963991820491\" ,\r\n    \"subject\":\"super_admin\",\r\n    \"message\":\"Aziz Barghoth\",\r\n    \"status\":\"new\",\r\n    \"assigned_to\":\"2971341e-acef-40f2-a03a-e66bfe3823d4\",\r\n    \"ip_hash\":\"hased IP\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact/53f0402c-6a71-49a6-b072-8bd519bd2dd3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact",
+                "53f0402c-6a71-49a6-b072-8bd519bd2dd3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteContact",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact/b8ba2b60-4391-4e8b-898e-f9f88c5c5f2e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact",
+                "b8ba2b60-4391-4e8b-898e-f9f88c5c5f2e"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "newsletter",
+      "item": [
+        {
+          "name": "GetNewsletter",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/newsletter/subscribe",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "newsletter",
+                "subscribe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CraeteContact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n  \"reference_no\":\"10\",\r\n  \"type\": \"services\",\r\n  \"project_id\": 1,\r\n  \"location_id\": 1,\r\n  \"clarification_deadline\": \"2026-10-30\",\r\n  \"submission_deadline\": \"2027-01-01\",\r\n  \"opening_date\": \"2026-12-31\",\r\n  \"submission_email\":\"tenders@gmail.com\",\r\n  \"status\": \"draft\",\r\n  \"translations\":[\r\n    {\r\n        \r\n      \"lang_code\": \"en\",\r\n      \"title\": \"Tender for services\",\r\n      \"summary\": \"to provide deskes fro schools\",\r\n      \"content\":\"this announcement to provide deskes for the following scolls .....,      this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....,this announcement to provide deskes for the following scolls .....\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ar\",\r\n      \"title\": \"مناقصة خدمات\",\r\n      \"summary\": \"توفير مكاتب للمدارس\",\r\n      \"content\":\"tهذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...، هذا إعلان بشأن توفير مقاعد دراسية للمدارس التالية...\"\r\n     \r\n    },\r\n     {\r\n        \r\n      \"lang_code\": \"ku\",\r\n      \"title\": \"Îhaleya xizmetguzariyan\",\r\n      \"summary\": \"ji bo dibistanan maseyên xwendinê dabînkirin\",\r\n      \"content\":\"Ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,      ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....,ev daxuyanî ji bo dabînkirina maseyên xwendinê ji bo dibistanên jêrîn e .....\"\r\n     \r\n    }\r\n  ]\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateContact",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"name\":\"Aziz\",\r\n    \"email\":\"aziz@gmail.com\",\r\n    \"phone\":\"+963991820491\" ,\r\n    \"subject\":\"super_admin\",\r\n    \"message\":\"Aziz Barghoth\",\r\n    \"status\":\"new\",\r\n    \"assigned_to\":\"2971341e-acef-40f2-a03a-e66bfe3823d4\",\r\n    \"ip_hash\":\"hased IP\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact/b8ba2b60-4391-4e8b-898e-f9f88c5c5f2e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact",
+                "b8ba2b60-4391-4e8b-898e-f9f88c5c5f2e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteContact",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contact/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contact",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Media",
+      "item": [
+        {
+          "name": "GetAllMedia",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"email\":\"aziz@gmail.com\",\r\n    \"password\":\"A@a112233\" ,\r\n    \"role_code\":\"super_admin\",\r\n    \"full_name\":\"Aziz Barghoth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/media",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "media"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CraeteMedia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [
+                    "/D:/CV/CV_2025/Abdulaziz Barghouth_.pdf"
+                  ]
+                },
+                {
+                  "key": "lang_code",
+                  "value": "ar",
+                  "type": "text"
+                },
+                {
+                  "key": "alt_text",
+                  "value": "السيرة الذاتية",
+                  "type": "text"
+                },
+                {
+                  "key": "caption",
+                  "value": "السيرة الذاتيةالسيرة الذاتيةالسيرة الذاتيةالسيرة الذاتيةالسيرة الذاتية",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/media",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "media"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updatemedia",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [
+                    "/C:/Users/Aziz/Downloads/6924407964.pdf"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/media",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "media"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteMedia",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{TestLogIn}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/media/d2734279-c962-4938-86f4-c382cbd08343",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "media",
+                "d2734279-c962-4938-86f4-c382cbd08343"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Api Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer"
+  },
+  "variable": [
+    {
+      "key": "TestLogIn",
+      "secret": true
+    }
+  ]
+}
