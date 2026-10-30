@@ -22,7 +22,14 @@ function formatError(err) {
 
 app.set('trust proxy', 1); // behind nginx / a load balancer
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } })); // allow the front-end to load /uploads images
-app.use(cors({ origin: env.corsOrigins.includes('*') ? true : env.corsOrigins, credentials: true }));
+app.use(
+  cors({
+    origin: env.LOCAL_FRONT_SERVER.includes("*")
+      ? true
+      : env.LOCAL_FRONT_SERVER,
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
