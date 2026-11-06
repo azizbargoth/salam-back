@@ -7,19 +7,26 @@ const User = require('../model/User.model');
 const authenticate = asyncHandler(async (req, res, next) => {
   const header = req.headers.authorization || '';
   const match = header.match(/^Bearer\s+(\S+)\s*$/i);
-  const token = match ? match[1] : null;
-  if (!token) throw new AppError('Authentication required', 401);
+    if (!req.cookies || !req.cookies.access_token)
+      return res.status(401).json({ message: "not authorized user" });
+  const token = req.cookies?.access_token || match?.[1];
+
+  // const token = req.cookies?.access_token;//updated from manus
+
+ if (!token) throw new AppError("Authentication required", 401);//updated from MANUS
 
   let payload;
   try {
     payload = tokenService.verify(token);
   } catch {
-    throw new AppError('Invalid or expired token', 401);
+    throw new AppError("Invalid or expired token", 401);
   }
 
   const user = await User.findById(payload.sub);
-  if (!user || user.status !== 'active') throw new AppError('Account not found or inactive', 401);
-  req.user = user;
+  if (!user || user.status !== "active")
+    throw new AppError("Account not found or inactive", 401);
+   const { password_hash, ...safeUser } = user;
+  req.user = safeUser;
   next();
 });
 

@@ -11,6 +11,7 @@ const DUMMY_HASH = bcrypt.hashSync('not-a-real-password', 12); // keeps timing s
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.validated.body;
   const user = await User.findByEmail(email);
+  // const userinfo= await User.findById(user.id)
   const ok = await bcrypt.compare(password, user ? user.password_hash : DUMMY_HASH);
 
   if (!user || !ok) {
@@ -22,7 +23,18 @@ const login = asyncHandler(async (req, res) => {
   await User.touchLogin(user.id);
   const { password_hash, ...safeUser } = user;
   logger.info(`Login: ${email} (${user.role_code}) from ${req.ip}`);
-  res.json({ success: true, data: { token: tokenService.sign(user), user: safeUser } });
+  // res.json({ success: true, data: { token: tokenService.sign(user), user: safeUser } });
+  const token = tokenService.sign(user);
+
+  res.cookie("access_token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "development",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 15 * 60 * 1000, // Match the token's expiry
+  });
+
+  res.json({ success: true, data: { user: safeUser } });
 });
 
 const me = (req, res) => res.json({ success: true, data: req.user });
@@ -41,7 +53,14 @@ const changePassword = asyncHandler(async (req, res) => {
 // Tokens are stateless; the client just discards its token. We log it for the audit trail.
 const logout = (req, res) => {
   logger.info(`Logout: ${req.user.email}`);
-  res.json({ success: true, message: 'Logged out' });
+ 
+  res.clearCookie("access_token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "development",
+    sameSite: "lax",
+    path: "/",
+  });
+  res.json({ success: true, message: "Logged out" });
 };
 
 module.exports = { login, me, changePassword, logout };

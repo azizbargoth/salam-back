@@ -7,10 +7,12 @@ const routes = require('./routes');
 const { apiLimiter } = require('./middleware/rateLimit.middleware');
 const { notFound, errorHandler } = require('./middleware/error.middleware');
 const { getLogger } = require('./services/logger.service');
+const cookieParser = require("cookie-parser");
 
 const logger = getLogger('app');
 const app = express();
 
+app.use(cookieParser());//updated from manus
 function formatError(err) {
   if (err instanceof AggregateError) return err.errors.map(formatError).join('; ');
   if (err instanceof Error) {
@@ -46,6 +48,8 @@ app.use('/uploads', express.static(env.uploadDir, { maxAge: '7d', index: false }
 app.use('/api', apiLimiter, routes);
 app.use(notFound);
 app.use(errorHandler);
+
+
 
 async function start() {
   await db.connect();
